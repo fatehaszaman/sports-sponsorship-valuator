@@ -4,7 +4,7 @@ valuation/comparable_deals.py — Comparable Deals Analyzer with OLS Regression.
 Business summary
 ----------------
 The "comps" approach asks: what did similar deals actually trade for? By
-searching our database of 50 real historical deals and finding the most
+searching our database of 47 real historical deals and finding the most
 similar ones, we derive a market-implied fair value — the same methodology
 used in M&A by investment banks to sanity-check DCF models.
 
