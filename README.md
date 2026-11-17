@@ -27,5 +27,20 @@ An exploratory sponsorship-valuation codebase in Python (~7,600 lines across 14 
 git clone https://github.com/fatehaszaman/sports-sponsorship-valuator.git
 cd sports-sponsorship-valuator
 pip install -r requirements.txt
-python3 -c "from valuation.comparable_deals import ComparableDealsAnalyzer; print(len(ComparableDealsAnalyzer().deals))"
+python3 -c "from data.sports_data import HISTORICAL_DEALS; print(len(HISTORICAL_DEALS))"   # 47
 ```
+
+## Known data issues
+
+Three deals in `data/sports_data.py` store a value that does not match the
+field's unit, `annual_value_usd_m` (annual value, USD millions). They are left
+as recorded and listed here so the inconsistency stays visible:
+
+| Deal | Stored value | Note in the record |
+|---|---|---|
+| NFL004, AT&T Stadium naming | 19.0 | $1.19bn over 20 years |
+| NBA002, Crypto.com Arena naming | 700.0 | $700m over 20 years ($35m/yr) |
+| NBA003, Chase Center naming | 300.0 | $300m over 20 years ($15m/yr) |
+
+The comparable-deals regression uses `annual_value_usd_m` as its target, so
+its results inherit these values.
